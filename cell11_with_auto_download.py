@@ -24,6 +24,7 @@ except ImportError as e:
     print("請安裝: pip install rasterstats geopandas pandas rasterio requests")
     raise
 
+<<<<<<< HEAD
 def safe_mkdir(path):
     """安全建立目錄，處理檔案/目錄衝突"""
     path = Path(path)
@@ -41,14 +42,34 @@ def safe_mkdir(path):
     
     return path
 
+=======
+>>>>>>> 17cf5e184d959cdff2c6e2dec77831b6d3744b86
 def download_township_boundaries_nlsc(target_dir="data", force_download=False):
     """從 NLSC 網站自動下載鄉鎮邊界檔案"""
     print("\n" + "=" * 60)
     print("🌐 從 NLSC 網站下載鄉鎮邊界檔案")
     print("=" * 60)
     
+<<<<<<< HEAD
     # 安全建立目標目錄
     target_path = safe_mkdir(target_dir)
+=======
+    # 建立目標目錄
+    target_path = Path(target_dir)
+    
+    # 處理目錄/檔案衝突
+    if target_path.exists():
+        if target_path.is_file():
+            # 如果存在同名檔案，先刪除
+            print(f"⚠️ 發現同名檔案 {target_path}，正在刪除...")
+            target_path.unlink()
+            target_path.mkdir(parents=True, exist_ok=True)
+        else:
+            # 如果是目錄，確保可以寫入
+            print(f"✅ 目錄已存在: {target_path}")
+    else:
+        target_path.mkdir(parents=True, exist_ok=True)
+>>>>>>> 17cf5e184d959cdff2c6e2dec77831b6d3744b86
     
     # 檢查是否已存在檔案
     township_files = [
@@ -60,6 +81,7 @@ def download_township_boundaries_nlsc(target_dir="data", force_download=False):
     
     existing_files = [f for f in township_files if f.exists()]
     
+<<<<<<< HEAD
     # 檢查是否所有必要檔案都存在
     all_files_exist = len(existing_files) == len(township_files)
     
@@ -81,6 +103,15 @@ def download_township_boundaries_nlsc(target_dir="data", force_download=False):
         print(f"❌ 未發現鄉鎮邊界檔案")
         print(f"  將嘗試完整下載...")
     
+=======
+    if existing_files and not force_download:
+        print(f"✅ 發現現有檔案: {len(existing_files)} 個")
+        for f in existing_files:
+            print(f"    {f.name}")
+        print("  如需重新下載，請設定 force_download=True")
+        return True
+    
+>>>>>>> 17cf5e184d959cdff2c6e2dec77831b6d3744b86
     # NLSC 下載 URL 模式測試
     print("🔍 測試 NLSC 下載端點...")
     
@@ -198,10 +229,13 @@ def download_township_boundaries_nlsc(target_dir="data", force_download=False):
         
         # 短暫延遲避免被阻擋
         time.sleep(0.5)
+<<<<<<< HEAD
         
         # 如果成功下載，跳出循環
         if successful_download:
             break
+=======
+>>>>>>> 17cf5e184d959cdff2c6e2dec77831b6d3744b86
     
     if successful_download:
         print(f"\n🎉 成功從 NLSC 下載鄉鎮邊界檔案!")
