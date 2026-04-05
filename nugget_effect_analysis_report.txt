@@ -1,0 +1,33 @@
+Nugget Effect Analysis - 極端雨量保留分析報告
+============================================================
+分析時間: 2026-04-04
+目標測站: Suao (130.5 mm/hr)
+
+模型參數:
+  • 高 Nugget: 0.1196 (10% of sill)
+  • 低 Nugget: 0.0120 (1% of sill)
+  • Sill: 1.1957
+  • Range: 50km
+  • Model: Spherical variogram
+
+關鍵發現:
+  • 測站位置預測 (0m):
+    - 高 Nugget: 130.5 mm/hr (100.0%)
+    - 低 Nugget: 130.5 mm/hr (100.0%)
+  • 500m 處預測:
+    - 高 Nugget: 70.9 mm/hr
+    - 低 Nugget: 107.3 mm/hr
+
+衰減分析:
+  • 高 Nugget 衰減率: 45.7%
+  • 低 Nugget 衰減率: 17.8%
+
+結論:
+  • 低 Nugget 更好保留極端雨量值
+  • 高 Nugget 過度平滑，可能低估風險
+  • 建議極端事件分析使用低 Nugget 設定
+
+實務意義:
+  • 撤離決策需要準確的極值預測
+  • 低 Nugget 提供更保守的安全邊界
+  • 參數選擇影響生命安全決策
