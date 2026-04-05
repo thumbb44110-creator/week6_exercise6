@@ -1,0 +1,31 @@
+GeoTIFF Export - 匯出摘要報告
+==================================================
+匯出時間: 2026-04-04
+座標系統: EPSG:3826 (TWD97)
+
+網格資訊:
+  • 覆蓋範圍: 264261 - 350261 m
+  • 網格尺寸: 87 × 211
+  • 覆蓋面積: 18060.0 km²
+
+輸出檔案:
+  • ✅ kriging_rainfall.tif
+  • ✅ kriging_variance.tif
+  • ✅ rf_rainfall.tif
+
+技術規格:
+  • 格式: GeoTIFF (LZW 壓縮)
+  • 資料類型: Float32
+  • NoData 值: -9999.0
+  • 分塊: 256×256
+
+座標轉換:
+  • 原始: numpy (row 0 = south)
+  • 輸出: GeoTIFF (row 0 = north)
+  • 方法: np.flipud()
+
+應用價值:
+  • GIS 軟體直接讀取 (QGIS, ArcGIS)
+  • 空間分析與視覺化
+  • 災害管理系統整合
+  • 科學研究可重現性
